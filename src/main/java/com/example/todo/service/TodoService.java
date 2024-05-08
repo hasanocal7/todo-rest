@@ -19,27 +19,27 @@ public class TodoService {
         return todoRepository.save(todo);
     }
 
-    public Todo updateTodo(long id, Todo todo){
+    public Todo updateTodo(Long id, Todo todo){
         Optional<Todo> optTodo = todoRepository.findById(id);
         if (optTodo.isEmpty()){
-            throw new TodoNotFoundException("Todo with id" + id + "is not found.");
+            throw new TodoNotFoundException("Todo is not found.");
         }
         todo.setId(id);
         return todoRepository.save(todo);
     }
 
-    public void deleteTodo(long id){
+    public void deleteTodo(Long id){
         Optional<Todo> optTodo = todoRepository.findById(id);
         if (optTodo.isEmpty()){
-            throw new TodoNotFoundException("Todo with id" + id + "is not found.");
+            throw new TodoNotFoundException("Todo is not found.");
         }
         todoRepository.deleteById(id);
     }
 
-    public Todo getTodo(long id){
+    public Todo getTodo(Long id){
         Optional<Todo> optTodo = todoRepository.findById(id);
         if (optTodo.isEmpty()){
-            throw new TodoNotFoundException("Todo with id" + id + "is not found.");
+            throw new TodoNotFoundException("Todo is not found.");
         }
         return optTodo.get();
     }
