@@ -13,9 +13,11 @@ import java.util.Date;
 @ControllerAdvice
 public class RestExceptionHandler {
 
-    @ExceptionHandler(value = TodoNotFoundException.class)
-    public ResponseEntity<ApiError> handleTodoNotFoundException(){
-        ApiError error = new ApiError(404, "No such Todo", new Date());
+    @ExceptionHandler({TodoNotFoundException.class})
+    public ResponseEntity<ApiError> handleTodoNotFoundException(
+            Exception ex
+    ){
+        ApiError error = new ApiError(404, ex.getMessage(), new Date());
 
         return new ResponseEntity<ApiError>(error, HttpStatus.NOT_FOUND);
     }
