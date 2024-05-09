@@ -9,12 +9,12 @@ import java.util.Date;
 @Setter
 public class ApiError {
     private Integer errorCode;
-    private String errorDesc;
+    private String errorMsg;
     private Date date;
 
-    public ApiError(Integer errorCode, String errorDesc, Date date) {
+    public ApiError(Integer errorCode, String errorMsg, Date date) {
         this.errorCode = errorCode;
-        this.errorDesc = errorDesc;
+        this.errorMsg = errorMsg;
         this.date = date;
     }
 }
